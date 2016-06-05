@@ -4,24 +4,38 @@ var input = {
 };
 
 var button = document.getElementById("growTree");
+var inputHeight = document.getElementById("height").value;
+var inputCharacter = document.getElementById("character").value;
+// inputHeight.addEventListener("keypress", keyPressFunction);
+// inputCharacter.addEventListener("keypress", keyPressFunction);
 
-button.addEventListener("click", buildTree);
+button.addEventListener("click", collectValues);
 
-var inputHeight = document.getElementById("height");
-var inputCharacter = document.getElementById("character");
+function collectValues (input) {
+input.height = document.getElementById("height").value;
+input.char = document.getElementById("character").value;
+checkValues(input);
+}
 
-inputHeight.addEventListener("keypress", keyPressFunction);
-inputCharacter.addEventListener("keypress", keyPressFunction);
+function checkValues (input) {
+	if (input.height === "" || input.char === "") {
+		console.log("please enter a value");
+	} else {
+		buildTree(input);
+	}
+}
+
+
 
 // function log() {
 // 	console.log(input.height);
 // 	console.log(input.char);
 // }
 
-function buildTree() {
+function buildTree(input) {
 
-input.height = inputHeight.value;
-input.char = inputCharacter.value;
+// input.height = inputHeight.value;
+// input.char = inputCharacter.value;
 
 var spaces;
 var spaceCounter = input.height - 1;
@@ -41,8 +55,10 @@ for (var i = 0; i < input.height; i++) {
 }
 
 function keyPressFunction (event) {
-	if (event.keyCode === 13) {
-		buildTree();
+	if (event.keyCode === 13 && (input.height !== "" || input.char !== "")) {
+		buildTree(input);
+	} else if (event.keyCode === 13 && (input.height === "" || input.char === "")) {
+		console.log("Please enter a value");
 	}
 }
 
