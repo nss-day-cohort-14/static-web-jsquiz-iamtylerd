@@ -58,12 +58,11 @@ for (var i = 0; i < input.height; i++) {
 };
 }
 
-function keyPressFunction (event) {
 	function keyPressFunction (event) {
     if (event.keyCode === 13) {
         collectValues(input);
     }
-}
+
 }
 
 
