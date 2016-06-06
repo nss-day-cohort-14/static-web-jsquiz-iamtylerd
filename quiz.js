@@ -15,7 +15,7 @@ inputHeightListener.addEventListener("keypress", keyPressFunction);
 
 button.addEventListener("click", collectValues);
 
-function collectValues (input) {
+function collectValues () {
 input.height = document.getElementById("height").value;
 input.char = document.getElementById("character").value;
 checkValues(input);
