@@ -19,7 +19,7 @@ checkValues(input);
 
 function checkValues (input) {
 	if (input.height === "" || input.char === "") {
-		console.log("please enter a value");
+		alert("please enter a value");
 	} else {
 		buildTree(input);
 	}
@@ -58,7 +58,7 @@ function keyPressFunction (event) {
 	if (event.keyCode === 13 && (input.height !== "" || input.char !== "")) {
 		buildTree(input);
 	} else if (event.keyCode === 13 && (input.height === "" || input.char === "")) {
-		console.log("Please enter a value");
+		alert("Please enter a value");
 	}
 }
 
