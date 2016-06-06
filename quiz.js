@@ -6,8 +6,12 @@ var input = {
 var button = document.getElementById("growTree");
 var inputHeight = document.getElementById("height").value;
 var inputCharacter = document.getElementById("character").value;
-// inputHeight.addEventListener("keypress", keyPressFunction);
-// inputCharacter.addEventListener("keypress", keyPressFunction);
+
+var inputCharacterListener = document.getElementById("character");
+inputCharacterListener.addEventListener("keypress", keyPressFunction);
+var inputHeightListener = document.getElementById("height");
+inputHeightListener.addEventListener("keypress", keyPressFunction);
+
 
 button.addEventListener("click", collectValues);
 
@@ -55,11 +59,11 @@ for (var i = 0; i < input.height; i++) {
 }
 
 function keyPressFunction (event) {
-	if (event.keyCode === 13 && (input.height !== "" || input.char !== "")) {
-		buildTree(input);
-	} else if (event.keyCode === 13 && (input.height === "" || input.char === "")) {
-		alert("Please enter a value");
-	}
+	function keyPressFunction (event) {
+    if (event.keyCode === 13) {
+        collectValues(input);
+    }
+}
 }
 
 
